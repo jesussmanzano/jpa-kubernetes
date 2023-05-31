@@ -50,7 +50,8 @@
 			<artifactId>spring-boot-starter-test</artifactId>
 			<scope>test</scope>
 		</dependency>
-	</dependencies>
+
+    </dependencies>
 
 	<build>
 		<plugins>
@@ -59,6 +60,7 @@
 				<artifactId>spring-boot-maven-plugin</artifactId>
 			</plugin>
 		</plugins>
+		<finalName>springboot-crud-app</finalName>
 	</build>
 
 </project>

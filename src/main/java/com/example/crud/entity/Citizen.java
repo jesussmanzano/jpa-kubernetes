@@ -5,27 +5,34 @@ import lombok.AllArgsConstructor;
 import lombok.Data;
 import lombok.NoArgsConstructor;
 
-import javax.persistence.Entity;
-import javax.persistence.Id;
+import javax.persistence.*;
+import java.util.ArrayList;
+import java.util.List;
 
 @Data
+@Table(name = "CITIZEN")
 @Entity
-@NoArgsConstructor(force = true)
 @AllArgsConstructor
 public class Citizen {
+    public Citizen(){
+        super();
+    }
     @Id
+    @GeneratedValue(strategy = GenerationType.IDENTITY)
     private Long id;
 
-    @NotNull
+    @Column(nullable = false)
     private String name;
 
-    @NotNull
-    private String fistLastName;
+    @Column(nullable = false)
+    private String firstLastName;
 
-    @NotNull
+    @Column(nullable = false)
     private String secondLastName;
 
+    @Column
     private String uniquePopulationRegistryCode;
+
 
 
 
