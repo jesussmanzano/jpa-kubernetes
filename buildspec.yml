@@ -1,5 +1,15 @@
 version: 0.2
 phases:
+  pre_build:
+    commands:
+      - echo ===========================VERIFYING DOCKER================================
+      - docker info
+      - echo ====================STARTING PRE_BUILD PHASE===============================
+      - echo ===========================================================================
+      - echo =====================Environment variables=================================
+      - IMAGE_TAG=latest
+      - echo $AWS_DEFAULT_REGION
+      - DB_HOST=municipality-instance-1.c6adnedlcx9u.us-east-2.rds.amazonaws.com:3306
   build:
     commands:
       - echo Packaging JAR file
