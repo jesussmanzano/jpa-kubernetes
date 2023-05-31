@@ -5,6 +5,10 @@ spring:
     username: ${DB_USER}
     password: ${DB_PASSWORD}
 
+   # url: jdbc:mysql://${DB_HOST}/${DB_NAME}?allowPublicKeyRetrieval=true&useSSL=false
+    #username: ${DB_USER}
+    #password: ${DB_PASSWORD}
+
   jpa:
     show-sql: true
     database-platform: org.hibernate.dialect.MySQL5Dialect
