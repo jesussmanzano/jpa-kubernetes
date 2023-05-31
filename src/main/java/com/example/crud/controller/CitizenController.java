@@ -10,8 +10,8 @@ import org.springframework.http.HttpStatus;
 import org.springframework.http.ResponseEntity;
 import org.springframework.web.bind.annotation.*;
 
-import java.util.List;
-import java.util.Map;
+import java.util.*;
+import java.util.stream.Collectors;
 
 @RestController
 @RequestMapping("/api/jpa/")
@@ -30,7 +30,9 @@ public class CitizenController {
 
     @GetMapping("findAll")
     public ResponseEntity<List<Citizen>> findAll(){
-        return new ResponseEntity<>(service.getOrderList(), HttpStatus.OK);
+        Collections.sort(service.getOrderList(), (o2, o1) -> {return o2.getName().compareTo(o1.getName());});
+        //return new ResponseEntity<>(service.getOrderList(), HttpStatus.OK);
+        return new ResponseEntity<>(service.getOrderList().stream().sorted(Comparator.comparing(Citizen::getName)).collect(Collectors.toList()), HttpStatus.OK);
     }
 
     @PatchMapping
